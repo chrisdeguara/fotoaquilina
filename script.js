@@ -137,8 +137,8 @@ window.addEventListener("scroll", () => {
 
 // Add animation on scroll
 const observerOptions = {
-  threshold: 0.1,
-  rootMargin: "0px 0px -50px 0px",
+  threshold: 0.05,
+  rootMargin: "0px 0px -20px 0px",
 };
 
 const observer = new IntersectionObserver((entries) => {
@@ -152,6 +152,9 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe sections for animation
 document.querySelectorAll("section").forEach((section) => {
+  // Skip the hero section as it's already visible
+  if (section.classList.contains("hero")) return;
+  
   section.style.opacity = "0";
   section.style.transform = "translateY(20px)";
   section.style.transition = "opacity 0.6s ease, transform 0.6s ease";
