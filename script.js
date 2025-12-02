@@ -1,3 +1,14 @@
+// Hide loader when page is fully loaded
+window.addEventListener("load", function () {
+  const loader = document.getElementById("loader");
+  if (loader) {
+    loader.style.opacity = "0";
+    setTimeout(function () {
+      loader.style.display = "none";
+    }, 300);
+  }
+});
+
 // Slider functionality
 let currentSlide = 0;
 const slides = document.querySelectorAll(".slide");
@@ -115,13 +126,13 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-// Navbar background change on scroll
+// Navbar shrink on scroll
 window.addEventListener("scroll", () => {
   const navbar = document.querySelector(".navbar");
   if (window.scrollY > 100) {
-    navbar.style.background = "rgba(26, 26, 26, 0.95)";
+    navbar.classList.add("scrolled");
   } else {
-    navbar.style.background = "var(--primary-color)";
+    navbar.classList.remove("scrolled");
   }
 });
 

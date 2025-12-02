@@ -11,6 +11,11 @@
     />
   </head>
   <body>
+    <!-- Loading Spinner -->
+    <div id="loader" class="loader">
+      <div class="spinner"></div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar">
       <div class="container">
@@ -33,8 +38,7 @@
     <section id="home" class="hero">
       <div class="hero-content">
         <h1>Domenic Aquilina</h1>
-        <p class="tagline">Professional Sports Photographer</p>
-        <p class="subtitle">
+        <p class="tagline">
           UEFA Official Photojournalist | Award-Winning Sports Photography
         </p>
         <a href="#portfolio" class="cta-button">View Portfolio</a>
@@ -70,40 +74,42 @@
               various UEFA publications have been numerous and still ongoing.
             </p>
 
-            <div class="credentials">
-              <h3>Memberships & Accreditations</h3>
-              <ul>
-                <li>
-                  Association Internationale de la Presse Sportive (A.I.P.S)
-                </li>
-                <li>Institute of Maltese Journalists</li>
-                <li>The Malta Sportswriters Association</li>
-                <li>The Malta Institute of Professional Photographers</li>
-                <li>International Federation of Journalists</li>
-              </ul>
-            </div>
+            <div class="credentials-grid">
+              <div class="credentials">
+                <h3>Memberships & Accreditations</h3>
+                <ul>
+                  <li>
+                    Association Internationale de la Presse Sportive (A.I.P.S)
+                  </li>
+                  <li>Institute of Maltese Journalists</li>
+                  <li>The Malta Sportswriters Association</li>
+                  <li>The Malta Institute of Professional Photographers</li>
+                  <li>International Federation of Journalists</li>
+                </ul>
+              </div>
 
-            <div class="achievements">
-              <h3>Awards & Recognition</h3>
-              <ul>
-                <li>
-                  <strong
-                    >SWPP UK "Sport General Photographer of The Year
-                    2011"</strong
-                  >
-                  - SWPP Convention 2012, London
-                </li>
-                <li>
-                  <strong>"Malta Sports Photographer of the Year"</strong> -
-                  Malta Journalistic Awards 2014, 2017, 2018, 2019, 2020, and
-                  2023
-                </li>
-                <li>
-                  Official photographer for the Malta Football Association and
-                  Malta Senior National Football Team (September 2010 - November
-                  2023)
-                </li>
-              </ul>
+              <div class="achievements">
+                <h3>Awards & Recognition</h3>
+                <ul>
+                  <li>
+                    <strong
+                      >SWPP UK "Sport General Photographer of The Year
+                      2011"</strong
+                    >
+                    - SWPP Convention 2012, London
+                  </li>
+                  <li>
+                    <strong>"Malta Sports Photographer of the Year"</strong> -
+                    Malta Journalistic Awards 2014, 2017, 2018, 2019, 2020, and
+                    2023
+                  </li>
+                  <li>
+                    Official photographer for the Malta Football Association and
+                    Malta Senior National Football Team (September 2010 -
+                    November 2023)
+                  </li>
+                </ul>
+              </div>
             </div>
 
             <p class="book-info">
@@ -183,7 +189,7 @@
             <h3>Connect With Me</h3>
             <div class="social-links">
               <a
-                href="https://www.linkedin.com"
+                href="https://www.linkedin.com/in/domenic-aquilina-4b9b7510/"
                 target="_blank"
                 class="social-link linkedin"
               >
@@ -191,7 +197,7 @@
                 <span>LinkedIn</span>
               </a>
               <a
-                href="https://www.facebook.com"
+                href="https://www.facebook.com/domenic.aquilina"
                 target="_blank"
                 class="social-link facebook"
               >
@@ -244,6 +250,11 @@
       </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+      // Load script with timestamp to prevent caching
+      var script = document.createElement("script");
+      script.src = "script.js?v=" + new Date().getTime();
+      document.body.appendChild(script);
+    </script>
   </body>
 </html>
