@@ -447,7 +447,8 @@ section {
   font-size: 1.5rem;
   transition: var(--transition);
   border-radius: 5px;
-  z-index: 10;
+  z-index: 100;
+  pointer-events: auto;
 }
 
 .slider-btn:hover {
@@ -835,6 +836,8 @@ section {
   .slider-btn {
     padding: 10px 15px;
     font-size: 1.2rem;
+    z-index: 100;
+    pointer-events: auto;
   }
 
   .slider-btn.prev {
