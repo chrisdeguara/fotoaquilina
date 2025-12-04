@@ -327,3 +327,29 @@ document.addEventListener("keydown", (e) => {
     }
   }
 });
+
+// Touch gestures for lightbox
+let lightboxStartX = 0;
+let lightboxEndX = 0;
+
+lightbox.addEventListener("touchstart", (e) => {
+  lightboxStartX = e.touches[0].clientX;
+});
+
+lightbox.addEventListener("touchmove", (e) => {
+  // Allow vertical scrolling but track horizontal movement
+  lightboxEndX = e.touches[0].clientX;
+});
+
+lightbox.addEventListener("touchend", (e) => {
+  const diffX = lightboxStartX - lightboxEndX;
+
+  if (Math.abs(diffX) > 50) {
+    // Minimum swipe distance
+    if (diffX > 0) {
+      showLightboxImage(currentLightboxIndex + 1); // Swipe left, next image
+    } else {
+      showLightboxImage(currentLightboxIndex - 1); // Swipe right, previous image
+    }
+  }
+});

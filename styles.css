@@ -613,6 +613,13 @@ section {
   right: 20px;
 }
 
+/* Hide lightbox arrows on mobile */
+@media (max-width: 768px) {
+  .lightbox-btn {
+    display: none;
+  }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
