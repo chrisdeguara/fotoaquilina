@@ -103,7 +103,8 @@ sliderContainer.addEventListener("touchend", (e) => {
   endX = e.changedTouches[0].clientX;
   const diffX = startX - endX;
 
-  if (Math.abs(diffX) > 50) { // Minimum swipe distance
+  if (Math.abs(diffX) > 50) {
+    // Minimum swipe distance
     if (diffX > 0) {
       moveSlide(1); // Swipe left, next slide
     } else {
@@ -219,19 +220,18 @@ document.addEventListener("click", (e) => {
 
 // Photo Gallery
 const photoFiles = [
+  "831A9421.jpg",
+  "BB9I4613.jpg",
   "074A2017.jpg",
   "074A4699.jpg",
   "074A5652.jpg",
   "074A6386.jpg",
   "074A8463.jpg",
   "0M7A9017.jpg",
-  "831A9421.jpg",
-  "BB9I4613.jpg",
   "C80I5348.jpg",
   "CM6A1490.jpg",
   "CM6A1630.jpg",
   "CM6A7367.jpg",
-  "CM6A7371.jpg",
   "DA_074A5002.jpg",
   "DA_0M7A1077.jpg",
   "DA_831A9502.jpg",
