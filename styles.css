@@ -164,6 +164,19 @@ html {
   transform: scaleX(1);
 }
 
+/* Social media brand colors for navbar */
+.nav-links a[href*="facebook"]:hover {
+  color: #1877f2;
+}
+
+.nav-links a[href*="linkedin"]:hover {
+  color: #0077b5;
+}
+
+.nav-links a[href*="instagram"]:hover {
+  color: #e4405f;
+}
+
 /* Hero Section */
 .hero {
   height: 100vh;
