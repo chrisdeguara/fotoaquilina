@@ -113,27 +113,55 @@ sliderContainer.addEventListener("touchend", (e) => {
   }
 });
 
-// Contact form handling
+// Contact form handling with Web3Forms
 const contactForm = document.getElementById("contactForm");
+const formMessage = document.getElementById("form-message");
 
-contactForm.addEventListener("submit", (e) => {
+contactForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const formData = {
-    name: document.getElementById("name").value,
-    email: document.getElementById("email").value,
-    subject: document.getElementById("subject").value,
-    message: document.getElementById("message").value,
-  };
+  const formData = new FormData(contactForm);
+  const submitBtn = contactForm.querySelector(".submit-btn");
+  const originalBtnText = submitBtn.textContent;
 
-  // Here you would typically send the form data to a server
-  console.log("Form submitted:", formData);
+  // Hide any previous messages
+  formMessage.className = "form-message";
+  formMessage.textContent = "";
 
-  // Show success message
-  alert("Thank you for your message! I will get back to you soon.");
+  // Show loading state
+  submitBtn.textContent = "Sending...";
+  submitBtn.disabled = true;
 
-  // Reset form
-  contactForm.reset();
+  try {
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      formMessage.className = "form-message success";
+      formMessage.textContent = "✓ Thank you for your message! I will get back to you soon.";
+      contactForm.reset();
+      
+      // Hide success message after 5 seconds
+      setTimeout(() => {
+        formMessage.className = "form-message";
+      }, 5000);
+    } else {
+      formMessage.className = "form-message error";
+      formMessage.textContent = "✗ Oops! Something went wrong. Please try again.";
+    }
+  } catch (error) {
+    console.error("Error:", error);
+    formMessage.className = "form-message error";
+    formMessage.textContent = "✗ Oops! Something went wrong. Please try again.";
+  } finally {
+    // Restore button state
+    submitBtn.textContent = originalBtnText;
+    submitBtn.disabled = false;
+  }
 });
 
 // Smooth scroll with offset for fixed navbar
