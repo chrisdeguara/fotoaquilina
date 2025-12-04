@@ -679,7 +679,7 @@ section {
 }
 
 .social-link.instagram:hover {
-  background: #E4405F;
+  background: #e4405f;
   color: var(--white);
   transform: translateX(10px);
 }
@@ -841,6 +841,7 @@ section {
   .slider-btn {
     padding: 10px 15px;
     font-size: 1.2rem;
+    display: none;
   }
 
   .slider-btn.prev {
